@@ -1,15 +1,57 @@
 const listItems = document.querySelectorAll(".sidebar-list li");
+const subListItems = document.querySelectorAll(".submenu");
 
 listItems.forEach((item) => {
-  item.addEventListener("click", () => {
+  item.addEventListener("click", (e) => {
     let isActive = item.classList.contains("active");
 
     listItems.forEach((el) => {
       el.classList.remove("active");
     });
 
-    if (isActive) item.classList.remove("active");
-    else item.classList.add("active");
+    item.classList.add("active");
+    console.log(e.target.parentElement);
+    if (e.target.parentElement.classList.contains("title")) {
+      if (isActive) item.classList.remove("active");
+    } else if (e.target.parentElement.classList.contains("link")) {
+      if (isActive) item.classList.remove("active");
+    }
+    // else
+  });
+});
+
+subListItems.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    // let isActive = item.classList.contains("active");
+
+    // listItems.forEach((el) => {
+    //   el.classList.remove("active");
+    //   console.log(el);
+    // });
+
+    // // if (isActive) item.classList.remove("active");
+    // // else
+
+    // item.classList.add("active");
+    // if (e.target.parentElement.classList.contains("sub-title")) {
+    //   if (isActive) item.classList.remove("active");
+    // } else if (e.target.parentElement.classList.contains("sub-link")) {
+    //   if (isActive) item.classList.remove("active");
+    // }
+
+    let isActive = item.classList.contains("active");
+
+    listItems.forEach((el) => {
+      el.classList.remove("active");
+    });
+
+    item.classList.add("active");
+    console.log(e.target.parentElement);
+    if (e.target.parentElement.classList.contains("sub-title")) {
+      if (isActive) item.classList.remove("active");
+    } else if (e.target.parentElement.classList.contains("sub-link")) {
+      if (isActive) item.classList.remove("active");
+    }
   });
 });
 
