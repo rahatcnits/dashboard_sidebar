@@ -13,23 +13,34 @@
 
 /* Variables  */
 :root {
-  --color_Blue: #3f93f1;
+  --color_Blue: ##696cff;
   --color_Dark1: #1e1e1e;
   --color_Dark2: #252527;
   --color_Light1: #dfdfdf;
   --color_Light2: #c4c4c4;
+  --white: #fff;
+  --bg_light_theme: #f5f5f9;
+  --text_color: #697a8d;
+  --bg_color: #4359710a;
+  --bg_active_color: #696cff29;
 }
 
-/* =============== Sidebar =============== */
+body {
+  /* background-color: #e7e7ff !important; */
+  background-color: #f5f5f9;
+}
+
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 260px;
-  background-color: var(--color_Light2);
+  background-color: var(--white);
   transition: all 0.5s ease;
   z-index: 100;
+  box-shadow: 0 0.125rem 0.375rem 0 rgba(161, 172, 184, 0.12);
 }
 
 .sidebar.close {
@@ -37,25 +48,25 @@
 }
 
 .toggle-sidebar {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
-  background-color: #3f92f186;
+  background-color: var(--bg_active_color);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   position: absolute;
-  right: -18px;
+  right: -15px;
   top: 15px;
 }
 .toggle-sidebar i {
   font-size: 25px;
-  color: var(--color_Dark1);
+  color: var(--text_color);
 }
 
-/* --------- Logo ------------ */
+/* Logo */
 .logo-box {
   height: 60px;
   width: 100%;
@@ -92,7 +103,7 @@
   width: 100%;
 }
 
-/* ---------- Sidebar List ---------- */
+/* Sidebar List */
 .sidebar-list {
   height: 100%;
   padding: 30px 0 150px 0;
@@ -108,7 +119,7 @@
 }
 
 .sidebar-list li:hover {
-  background-color: var(--color_Dark2);
+  background-color: var(--bg_color);
 }
 
 .sidebar-list li .title {
@@ -120,7 +131,7 @@
 }
 
 .sidebar-list li.active .title {
-  background-color: var(--color_Blue);
+  background-color: var(--bg_active_color);
 }
 
 .sidebar-list li .bxs-chevron-down {
@@ -151,17 +162,17 @@
   min-width: 78px;
   text-align: center;
   line-height: 50px;
-  color: var(--color_Light1);
+  color: var(--text_color);
   font-size: 20px;
 }
 
 .sidebar-list li .title .name {
   font-size: 18px;
   font-weight: 400;
-  color: var(--color_Light1);
+  color: var(--text_color);
 }
 
-/* ---------------- Submenu ------------- */
+/* Submenu */
 .sidebar-list li .submenu {
   width: 0;
   height: 0;
@@ -183,7 +194,7 @@
   display: flex;
   flex-direction: column;
   padding: 6px 6px 14px 50px;
-  background-color: var(--color_Dark2);
+  background-color: var(--white);
 }
 
 .sidebar-list li .submenu.active .multi-submenu {
@@ -193,18 +204,33 @@
   display: flex;
   flex-direction: column;
   padding: 6px 6px 14px 30px;
-  background-color: var(--color_Dark2);
+  background-color: var(--white);
+}
+
+.submenu .sub-title .sub-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text_color);
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+.submenu .sub-title .sub-link:hover {
+  background-color: var(--bg_color);
 }
 
 .submenu .link {
-  color: var(--color_Light2);
+  color: var(--text_color);
   font-size: 15px;
-  padding: 5px 0;
+  padding: 8px 10px;
+  border-radius: 5px;
   transition: all 0.5s ease;
 }
 
 .submenu .link:hover {
-  color: #fff;
+  background-color: var(--bg_color);
 }
 
 .submenu-title {
@@ -215,7 +241,7 @@
   display: none;
 }
 
-/* ---------------- Submenu Close ------------- */
+/* Submenu Close */
 .sidebar.close .logo-name,
 .sidebar.close .title .name,
 .sidebar.close .title .bxs-chevron-down {
@@ -247,27 +273,25 @@
   opacity: 1;
   top: 0;
   pointer-events: initial;
-  background-color: var(--color_Dark2);
+  background-color: var(--bg_active_color);
 }
 .sidebar.close .submenu-title {
   display: block;
   font-style: 18px;
-  color: var(--color_Light1);
+  color: var(--text_color);
 }
 
 .sidebar.close .multi-submenu-title {
   display: block;
   font-style: 18px;
-  color: var(--color_Light1);
+  color: var(--text_color);
 }
 
-/* =============== Home Section =============== */
+/* Home Section */
 .home {
   position: relative;
-  background-color: var(--color_Light1);
   left: 260px;
   width: calc(100% - 260px);
-  height: 100vh;
   transition: all 0.5s ease;
 }
 
@@ -279,11 +303,12 @@
 /* navbar start */
 
 .navbar {
-  background-color: #fff;
+  background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px 30px;
+  box-shadow: 0 0.125rem 0.375rem 0 rgba(161, 172, 184, 0.12);
 }
 
 .nav_items {
@@ -391,6 +416,28 @@
 .nav_logo h3 span:last-child {
   color: rgba(0, 0, 0, 0.4);
 }
+
+/* Navbar End */
+
+/* Content Start */
+
+.content {
+  height: calc(100vh - 145px);
+}
+
+/* Content End */
+
+/* Copyright Start */
+
+#footer p {
+  margin-bottom: 0;
+  color: var(--text_color);
+  font-size: 14px;
+  background-color: var(--white);
+  padding: 25px 30px;
+}
+
+/* Copyright End */
 
 /* ============ Responsive / Breakpoints ========== */
 @media (max-width: 1080px) {
