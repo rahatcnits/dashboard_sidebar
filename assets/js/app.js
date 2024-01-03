@@ -43,8 +43,28 @@ const sidebar = document.querySelector(".sidebar");
 
 toggleSidebar.addEventListener("click", () => {
   sidebar.classList.toggle("close");
+  let toggleSidebarIcon = toggleSidebar.querySelector(".bx-chevrons-left");
+  toggleSidebarIcon.classList.toggle("active");
 });
 
 logo.addEventListener("click", () => {
   sidebar.classList.toggle("close");
+});
+
+// Toggle Dark Mode
+const toggleMode = document.querySelector(".toggle_mode i");
+const body = document.querySelector("body");
+
+toggleMode.addEventListener("click", () => {
+  if (toggleMode.classList.contains("bx-sun")) {
+    body.classList.toggle("dark_theme");
+    body.style.transition = "all 0.5s ease";
+    toggleMode.classList.remove("bx-sun");
+    toggleMode.classList.toggle("bx-moon");
+  } else {
+    body.classList.toggle("dark_theme");
+    body.style.transition = "all 0.5s ease";
+    toggleMode.classList.add("bx-sun");
+    toggleMode.classList.toggle("bx-moon");
+  }
 });
